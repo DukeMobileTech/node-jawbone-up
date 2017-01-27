@@ -335,6 +335,10 @@ module.exports = function(options) {
       create: create_creator('sleeps'),
       'delete': create_deletor('sleeps')
     },
+    /** @class heartrates */
+    heartrates: {
+      get: create_getter_xid('heartrates')
+    },
     refreshToken: {
       get: get_refreshToken
     },
