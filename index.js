@@ -147,7 +147,11 @@ module.exports = function(options) {
   function create_getter(str) {
     return function(options, callback) {
       if(good_params(options, callback)) {
-        var url = BASE_URL + '/users/@me/' + str;
+        if (serialize(options).length === 0) {
+          var url = BASE_URL + '/users/@me/' + str;
+        } else {
+          var url = BASE_URL + '/users/@me/' + str + '?' + serialize(options);
+        }
         api_get({ url: url }, callback);
       }
     };
